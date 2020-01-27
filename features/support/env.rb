@@ -6,7 +6,7 @@ require 'capybara-page-object'
 require 'rspec/expectations'
 
 
-Capybara.app_host   = "http://search.yahoo.com/"
+Capybara.app_host   = "https://www.google.com/"
 Capybara.run_server = false
 
 Dir["features/pages/*.rb"].sort.each do |file|
@@ -28,10 +28,7 @@ Spinach.hooks.before_run do
       Capybara.default_driver = Capybara.javascript_driver = :poltergeist
     else
       case ENV['driver']
-        when 'chrome'
-          Capybara.register_driver :selenium do |app|
-            Capybara::Selenium::Driver.new(app, :browser => :chrome)
-          end
+        when 'firefox'
           Capybara.default_driver = Capybara.javascript_driver = :selenium
 
         when 'ie'
@@ -66,6 +63,9 @@ Spinach.hooks.before_run do
           Capybara.default_driver = Capybara.javascript_driver = :iphone
 
         else
+          Capybara.register_driver :selenium do |app|
+            Capybara::Selenium::Driver.new(app, :browser => :chrome)
+          end
           Capybara.default_driver = Capybara.javascript_driver = :selenium
       end
   end

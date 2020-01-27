@@ -31,8 +31,8 @@ Steps to set-up from Commandline:
 
 Steps to run tests from Commandline:
 * Browser mode:
-    * For Firefox run command: bundle exec spinach
-    * For Chrome run command: driver=chrome bundle exec spinach
+    * For Chrome run command: bundle exec spinach
+    * For Firefox run command: driver=firefox bundle exec spinach
     * For Internet Explorer run command: driver=ie bundle exec spinach
     * For Safari run command: driver=safari bundle exec spinach
     * For iPhone Browser run command: driver=iphone bundle exec spinach
@@ -40,5 +40,6 @@ Steps to run tests from Commandline:
     * Run command: headless=false bundle exec spinach
 
 PS: You can download chrome driver from https://code.google.com/p/selenium/wiki/ChromeDriver
+PS: For setting up differnent browsers on local, see https://my.thoughtworks.com/groups/testing/blog/2014/11/27/cross-browser
 
 

@@ -3,11 +3,11 @@ module Pages
     path '/'
 
     def search_field
-      source.find('#yschsp')
+      source.find('.gsfi')
     end
 
     def submit_search_button
-      source.find('.sbb')
+      source.find('.gNO89b')
     end
 
     def search(value)
@@ -15,11 +15,11 @@ module Pages
     end
 
     def submit_search
-      submit_search_button.click
+      submit_search_button.visible?
     end
 
     def search_results
-      source.all('.res a.yschttl')
+      source.all('.sA5rQ')
     end
 
     def link_number(value)

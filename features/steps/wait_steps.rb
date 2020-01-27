@@ -1,4 +1,4 @@
-require "timeout"
+require 'timeout'
 
 module WaitSteps
   extend RSpec::Matchers::DSL
@@ -11,7 +11,7 @@ module WaitSteps
           sleep(2) until value = (arg == block.call)
           value
         end
-      rescue TimeoutError
+      rescue Timeout::Error
         raise Exception.new("'#{block.call}' \n should have been same as \n '#{arg}'")
       end
     end
@@ -25,7 +25,7 @@ module WaitSteps
           sleep(2) until value = block.call.include?(arg)
           value
         end
-      rescue TimeoutError
+      rescue Timeout::Error
         raise Exception.new("'#{block.call}' \n should include \n '#{arg}'")
       end
     end
@@ -39,7 +39,7 @@ module WaitSteps
           sleep(2) until value = !block.call.include?(arg)
           value
         end
-      rescue TimeoutError
+      rescue Timeout::Error
         raise Exception.new("'#{block.call}' \n should not include \n '#{arg}'")
       end
     end
@@ -53,7 +53,7 @@ module WaitSteps
           sleep(2) until value = block.call > arg
           value
         end
-      rescue TimeoutError
+      rescue Timeout::Error
         raise Exception.new("'#{block.call}' \n should be greater than \n '#{arg}'")
       end
     end
@@ -67,7 +67,7 @@ module WaitSteps
           sleep(2) until value = block.call
           value
         end
-      rescue TimeoutError
+      rescue Timeout::Error
         false
       end
     end
